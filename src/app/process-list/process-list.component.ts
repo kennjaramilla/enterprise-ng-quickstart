@@ -18,8 +18,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-process',
-  templateUrl: './process.component.html',
-  styleUrls: ['./process.component.css'],
+  templateUrl: './process-list.component.html',
+  styleUrls: ['./process-list.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProcessListComponent implements OnInit {

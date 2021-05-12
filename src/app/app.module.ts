@@ -2,11 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import {
-  SohoButtonModule, 
-  SohoComponentsModule, 
-  SohoDataGridModule, 
-  SohoFileUploadModule, 
-  SohoLocaleModule, 
+  SohoButtonModule,
+  SohoComponentsModule,
+  SohoDataGridModule,
+  SohoFileUploadModule,
+  SohoLocaleModule,
   SohoModalDialogModule
 } from 'ids-enterprise-ng';
 
@@ -17,6 +17,7 @@ import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.co
 import { ProcessListComponent } from './process-list/process-list.component';
 import { DesignerComponent } from './designer/designer.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ProcessUploadComponent } from './process-list/process-upload/process-upload.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
     HeaderComponent,
     PersonalizeMenuComponent,
     ProcessListComponent,
+    ProcessUploadComponent,
     DesignerComponent
   ],
   imports: [
