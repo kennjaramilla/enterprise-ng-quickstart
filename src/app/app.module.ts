@@ -8,13 +8,15 @@ import { SohoLocaleInitializerModule } from './locale/soho-locale-initializer.mo
 import { HeaderComponent } from './header/header.component';
 import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.component';
 import { ProcessListComponent } from './process-list/process-list.component';
+import { DesignerComponent } from './designer/designer.component';
 
 @NgModule({
-  declarations: [		
+  declarations: [			
     AppComponent,
     HeaderComponent,
     PersonalizeMenuComponent,
-      ProcessListComponent
+      ProcessListComponent,
+      DesignerComponent
    ],
   imports: [
       BrowserModule,
