@@ -1,7 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import {SohoButtonModule, SohoComponentsModule, SohoLocaleModule} from 'ids-enterprise-ng';
+import {
+  SohoButtonModule, 
+  SohoComponentsModule, 
+  SohoDataGridModule, 
+  SohoFileUploadModule, 
+  SohoLocaleModule, 
+  SohoModalDialogModule
+} from 'ids-enterprise-ng';
 
 import { AppComponent } from './app.component';
 import { SohoLocaleInitializerModule } from './locale/soho-locale-initializer.module';
@@ -9,21 +16,27 @@ import { HeaderComponent } from './header/header.component';
 import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.component';
 import { ProcessListComponent } from './process-list/process-list.component';
 import { DesignerComponent } from './designer/designer.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [			
+  declarations: [
     AppComponent,
     HeaderComponent,
     PersonalizeMenuComponent,
-      ProcessListComponent,
-      DesignerComponent
-   ],
+    ProcessListComponent,
+    DesignerComponent
+  ],
   imports: [
-      BrowserModule,
-      SohoLocaleModule,
-      SohoButtonModule,
-      SohoLocaleInitializerModule,
-      SohoComponentsModule
+    BrowserModule,
+    SohoLocaleModule,
+    SohoButtonModule,
+    SohoLocaleInitializerModule,
+    SohoComponentsModule,
+    SohoDataGridModule,
+    SohoButtonModule,
+    SohoModalDialogModule,
+    SohoFileUploadModule,
+    AppRoutingModule
   ],
   providers: [
     {
