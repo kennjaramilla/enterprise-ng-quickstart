@@ -1,3 +1,6 @@
-<p>
-  designer works!
-</p>
+<div class="full-width column">
+  <button soho-button="primary" (click)="navigateBack()" id="uploadProcess">Go to List</button>
+  <hr>
+  <h2>The selected list has an id of {{ list.id }} and a name {{ list.name }}</h2>
+  <a [routerLink]="['/designer', 4, 'TalentScience']">Load Talent Science</a>
+</div>
