@@ -10,7 +10,7 @@ import { PersonalizeMenuComponent } from './personalize-menu/personalize-menu.co
 import { ProcessListComponent } from './process-list/process-list.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [		
     AppComponent,
     HeaderComponent,
     PersonalizeMenuComponent,
