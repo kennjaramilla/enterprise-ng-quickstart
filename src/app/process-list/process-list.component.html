@@ -1,3 +1,13 @@
-<p>
-  process-list works!
-</p>
+<div class="row top-padding">
+  <div class="twelve columns demo" role="main">
+    <button soho-button="primary" (click)="onUpload()" id="uploadProcess">Upload Process</button>
+    <br><br>
+    <div soho-datagrid *ngIf="gridOptions" [gridOptions]="gridOptions" (rowClicked)="onListSelect($event)">
+    </div>
+  </div>
+</div>
+
+<br>
+
+<!-- div #dialogPlaceholder will contain the child component -->
+<div #dialogPlaceholder removeSelected="true"></div>
