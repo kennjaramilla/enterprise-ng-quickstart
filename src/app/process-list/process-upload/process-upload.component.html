@@ -1,3 +1,55 @@
-<p>
-  process-upload works!
-</p>
+<div class="full-width column">
+
+  <div class="field">
+    <label soho-label for={{name1}}>Normal Input</label>
+    <input
+      soho-fileupload [attributes]="fileUploadOptions.attributes" [disabled]="fileUploadDisabled" [readonly]="fileUploadReadOnly"
+      id="{{name1}}" name={{name1}} accept="true" (change)="onChange($event)"
+    />
+  </div>
+
+  <div class="field">
+    <label for="context-desc" class="required">Description</label>
+    <textarea id="context-desc" aria-required="true" data-validate="required" name="context-desc" maxlength="50">Description</textarea>
+  </div>
+
+  <div class="field">
+    <label for="context-comment" class="required">Comment</label>
+    <textarea id="context-comment" aria-required="true" data-validate="required" name="context-desc" maxlength="50">Comment</textarea>
+  </div>
+
+  <div class="field">
+    <label for="context-name">Name</label>
+    <input id="context-name" aria-required="true" data-validate="required" name="context-name" type="text" value="John" />
+  </div>
+
+  <div class="field">
+    <label for="context-notify" class="required label">Notify</label>
+    <select soho-dropdown id="context-notify" name="type" data-validate="required">
+      <option value=""></option>
+      <option value="1" selected>None</option>
+      <option value="2">On completion</option>
+      <option value="3">On failure</option>
+      <option value="4">Always</option>
+      <option value="5">On Activity or Workunit Failure</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="context-enabled" class="required label">Enabled</label>
+    <select soho-dropdown id="context-enabled" name="type" data-validate="required">
+      <option value=""></option>
+      <option value="1" selected>Yes</option>
+      <option value="2">No</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="context-work-unit-logging" class="required label">Work Unit Logging</label>
+    <select soho-dropdown id="context-work-unit-logging" name="type" data-validate="required">
+      <option value=""></option>
+      <option value="1" selected>Enabled</option>
+      <option value="2">Disabled</option>
+    </select>
+  </div>
+</div>
