@@ -1,5 +1,5 @@
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
@@ -9,12 +9,12 @@ describe('ProcessListComponent', () => {
   let component: ProcessListComponent;
   let fixture: ComponentFixture<ProcessListComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ ProcessListComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ProcessListComponent);
@@ -22,7 +22,7 @@ describe('ProcessListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the app', () => {
     expect(component).toBeTruthy();
   });
 });
