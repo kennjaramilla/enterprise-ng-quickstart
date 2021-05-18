@@ -15,6 +15,7 @@ import {
 } from './process-list-paging-data';
 import { ProcessUploadComponent } from './process-upload/process-upload.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiGatewayService } from '../services/api-gateway.service';
 
 @Component({
   selector: 'app-process',
@@ -37,8 +38,12 @@ export class ProcessListComponent implements OnInit {
   constructor(
     private modalService: SohoModalDialogService,
     private router: Router,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private apiGatewayService: ApiGatewayService
+  ) { 
+      // Sample use of GET function in API Gateway Service
+      this.loadUsers();
+  }
 
   ngOnInit(): void {
     const columns: SohoDataGridColumn[] = [];
@@ -62,6 +67,13 @@ export class ProcessListComponent implements OnInit {
       pagesize: 10,
       toolbar: { title: 'Process List', collapsibleFilter: true, keywordFilter: true, actions: true, rowHeight: true }
     };
+  }
+  // get
+  loadUsers() {
+    const apiService = 'users?page=2';
+    this.apiGatewayService.get(apiService).subscribe(data => {
+      console.log('loadUsers: ' +  data);
+    })
   }
 
   onUpload() {
