@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import {
   SohoButtonModule,
@@ -30,6 +31,8 @@ import { ProcessUploadComponent } from './process-list/process-upload/process-up
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
     SohoLocaleModule,
     SohoButtonModule,
     SohoLocaleInitializerModule,
@@ -37,8 +40,7 @@ import { ProcessUploadComponent } from './process-list/process-upload/process-up
     SohoDataGridModule,
     SohoButtonModule,
     SohoModalDialogModule,
-    SohoFileUploadModule,
-    AppRoutingModule
+    SohoFileUploadModule
   ],
   providers: [
     {
