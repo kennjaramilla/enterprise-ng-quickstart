@@ -69,13 +69,13 @@ export class ProcessListComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     /* This is a sample use of GET method in API Gateway Service */
-    this.loadUsers();  
+    this.loadUsers();
     /* This is a sample use of POST method in API Gateway Service */
     this.createUser();
     /* This is a sample use of PUT method in API Gateway Service */
-    this.updatePutUser();  
+    this.updatePutUser();
     /* This is a sample use of PATCH method in API Gateway Service */
-    this.updatePatchUser();  
+    this.updatePatchUser();
     /* This is a sample use of DLETE method in API Gateway Service */
     this.deleteUser();
   }
@@ -84,59 +84,59 @@ export class ProcessListComponent implements OnInit, AfterViewInit {
     const apiService = 'users';
     this.apiGatewayService.get(apiService).subscribe(data => {
       console.log(`loadUsers: ${data}`);
-    })
+    });
   }
 
-  createUser() { 
+  createUser() {
     const apiService = 'users';
-    let body = {
-      name: "morpheus",
-      job: "leader"
-    }
+    const body = {
+      name: 'morpheus',
+      job: 'leader'
+    };
     this.apiGatewayService.post(
       apiService,
       JSON.stringify(body)
     ).subscribe(data => {
       console.log(`createUsers: ${data}`);
-    })
+    });
   }
 
-  updatePutUser() { 
-    let id = 3;
+  updatePutUser() {
+    const id = 3;
     const apiService = `users/${id}`;
-    let body = {
-      name: "morpheus",
-      job: "zion resident"
-    }
+    const body = {
+      name: 'morpheus',
+      job: 'zion resident'
+    };
     this.apiGatewayService.put(
       apiService,
       JSON.stringify(body)
     ).subscribe(data => {
       console.log(`updatePutUsers: ${data}`);
-    })
+    });
   }
 
-  updatePatchUser() { 
-    let id = 4;
+  updatePatchUser() {
+    const id = 4;
     const apiService = `users/${id}`;
-    let body = {
-      name: "morpheus",
-      job: "zion resident"
-    }
+    const body = {
+      name: 'morpheus',
+      job: 'zion resident'
+    };
     this.apiGatewayService.patch(
       apiService,
       JSON.stringify(body)
     ).subscribe(data => {
       console.log(`updatePatchUsers: ${data}`);
-    })
+    });
   }
 
   deleteUser() {
-    let id = 1;
+    const id = 1;
     const apiService = `users/${id}`;
     this.apiGatewayService.delete(apiService).subscribe(data => {
       console.log(`deleteUser: ${data}`);
-    })
+    });
   }
 
   onUpload() {
