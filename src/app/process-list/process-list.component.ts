@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component, OnInit,
   ViewChild, ViewContainerRef
@@ -23,7 +24,7 @@ import { ApiGatewayService } from '../services/api-gateway.service';
   styleUrls: ['./process-list.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProcessListComponent implements OnInit {
+export class ProcessListComponent implements OnInit, AfterViewInit {
   @ViewChild(SohoDataGridComponent) sohoDataGridComponent?: SohoDataGridComponent;
   @ViewChild('dialogPlaceholder', { read: ViewContainerRef, static: true })
   placeholder?: ViewContainerRef;
@@ -40,10 +41,7 @@ export class ProcessListComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private apiGatewayService: ApiGatewayService
-  ) { 
-      // Sample use of GET function in API Gateway Service
-      this.loadUsers();
-  }
+  ) { }
 
   ngOnInit(): void {
     const columns: SohoDataGridColumn[] = [];
@@ -68,11 +66,76 @@ export class ProcessListComponent implements OnInit {
       toolbar: { title: 'Process List', collapsibleFilter: true, keywordFilter: true, actions: true, rowHeight: true }
     };
   }
-  // get
+
+  ngAfterViewInit(): void {
+    /* This is a sample use of GET method in API Gateway Service */
+    this.loadUsers();  
+    /* This is a sample use of POST method in API Gateway Service */
+    this.createUser();
+    /* This is a sample use of PUT method in API Gateway Service */
+    this.updatePutUser();  
+    /* This is a sample use of PATCH method in API Gateway Service */
+    this.updatePatchUser();  
+    /* This is a sample use of DLETE method in API Gateway Service */
+    this.deleteUser();
+  }
+
   loadUsers() {
-    const apiService = 'users?page=2';
+    const apiService = 'users';
     this.apiGatewayService.get(apiService).subscribe(data => {
-      console.log('loadUsers: ' +  data);
+      console.log(`loadUsers: ${data}`);
+    })
+  }
+
+  createUser() { 
+    const apiService = 'users';
+    let body = {
+      name: "morpheus",
+      job: "leader"
+    }
+    this.apiGatewayService.post(
+      apiService,
+      JSON.stringify(body)
+    ).subscribe(data => {
+      console.log(`createUsers: ${data}`);
+    })
+  }
+
+  updatePutUser() { 
+    let id = 3;
+    const apiService = `users/${id}`;
+    let body = {
+      name: "morpheus",
+      job: "zion resident"
+    }
+    this.apiGatewayService.put(
+      apiService,
+      JSON.stringify(body)
+    ).subscribe(data => {
+      console.log(`updatePutUsers: ${data}`);
+    })
+  }
+
+  updatePatchUser() { 
+    let id = 4;
+    const apiService = `users/${id}`;
+    let body = {
+      name: "morpheus",
+      job: "zion resident"
+    }
+    this.apiGatewayService.patch(
+      apiService,
+      JSON.stringify(body)
+    ).subscribe(data => {
+      console.log(`updatePatchUsers: ${data}`);
+    })
+  }
+
+  deleteUser() {
+    let id = 1;
+    const apiService = `users/${id}`;
+    this.apiGatewayService.delete(apiService).subscribe(data => {
+      console.log(`deleteUser: ${data}`);
     })
   }
 
