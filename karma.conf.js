@@ -21,12 +21,20 @@ module.exports = function (config) {
       fixWebpackSourcePaths: true
     },
     reporters: ['progress', 'kjhtml'],
+    check: {
+      global: {
+        statements: 80,
+        branches: 80,
+        functions: 80,
+        lines: 80
+      }
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
+    autoWatch: false,
     browsers: ['ChromeHeadless'],
-    singleRun: true,
+    // singleRun: false, // Karma captures browsers, runs the tests and exits
     restartOnFileChange: true
   });
 };
